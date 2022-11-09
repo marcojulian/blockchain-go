@@ -39,3 +39,15 @@ func (b *Block) mine(difficulty int) {
 		b.hash = b.calculateHash()
 	}
 }
+
+func CreateBlockchain(difficulty int) BlockChain {
+	genesisBlock := Block{
+		hash:      "0",
+		timestamp: time.Now(),
+	}
+	return BlockChain{
+		genesisBlock,
+		[]Block{genesisBlock},
+		difficulty,
+	}
+}

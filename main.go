@@ -10,6 +10,12 @@ type Block struct {
 	pow          int
 }
 
+type BlockChain struct {
+	genesisBlock Block
+	chain Block[]
+	difficulty int
+}
+
 func main() {
 
 }

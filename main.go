@@ -1,6 +1,11 @@
 package main
 
-import "time"
+import (
+	"crypto/sha256"
+	"encoding/json"
+	"fmt"
+	"time"
+)
 
 type Block struct {
 	data         map[string]any
@@ -18,4 +23,11 @@ type BlockChain struct {
 
 func main() {
 
+}
+
+func (b Block) calculateHash() string {
+	data, _ := json.Marshal(b.data)
+	blockData := b.previousHash + string(data) + b.timestamp.String()
+	blockHash := sha256.Sum256([]byte(blockData))
+	return fmt.Sprintf("%x", blockHash)
 }

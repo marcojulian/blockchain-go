@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 )
 
@@ -14,7 +15,7 @@ func main() {
 	blockchain.addBlock("John", "Bob", 2)
 
 	// check if the blockchain is valid; expecting true
-	fmt.Println(blockchain.isValid())
+	fmt.Println("Is valid: " + strconv.FormatBool(blockchain.isValid()))
 }
 
 func CreateBlockchain(difficulty int) BlockChain {
